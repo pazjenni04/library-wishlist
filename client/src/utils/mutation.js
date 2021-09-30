@@ -41,7 +41,7 @@ export const CREATE_USER = gql`
     $savedBooks: [bookSchema]
   ) {
     createUser(
-      uesrname: $username
+      username: $username
       email: $email
       password: $password
       savedBooks: $savedBooks
@@ -50,6 +50,17 @@ export const CREATE_USER = gql`
       email
       password
       savedBooks
+    }
+  }
+`;
+
+//allows login for user
+export const LOGIN_USER = gql`
+  mutation loginUser($username: String!, $email: String!, $password: String!) {
+    loginUser(username: $username, email: $email, password: $password) {
+      username
+      email
+      password
     }
   }
 `;

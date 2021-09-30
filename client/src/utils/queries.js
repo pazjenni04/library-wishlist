@@ -1,5 +1,9 @@
 import { gql } from "@apollo/client";
 
+//queries fetches data
+//equivalent to GET calls
+
+//fetches all the books with elements in model
 export const QUERY_BOOKS = gql`
   query books {
     book {
@@ -13,14 +17,15 @@ export const QUERY_BOOKS = gql`
   }
 `;
 
+//fetches all the uers with elements in model
 export const QUERY_USERS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+  query user($_id: String) {
+    user(_id: $_id) {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
+      username
+      email
+      savedBooks
+      bookCount #is fetching the bookCount for the toJSON virtual prop
     }
   }
 `;
