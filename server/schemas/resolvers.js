@@ -39,7 +39,7 @@ const resolvers = {
 
     //create delete mutation
     deleteBook: async (parent, { bookId }, context) => {
-      if (context.user) {
+      if (context.User) {
         const bookRemoved = await Book.findByIdAndDelete({ bookId });
         return bookRemoved;
       }
@@ -48,7 +48,7 @@ const resolvers = {
 
     //create mutation to save a book
     savedBooks: async (parent, args, context) => {
-      if (context.user) {
+      if (context.User) {
         const updateUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedBooks: args.bookId } },
