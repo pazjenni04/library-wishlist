@@ -1,5 +1,9 @@
 const { gql } = require("apollo-server-express");
 
+// typeDefs shoud match resolvers
+//defines on the server the structure the data will be in
+//menu of what's available to the client
+
 const typeDefs = gql`
   type Book {
     authors: [String]
@@ -25,17 +29,18 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    books: [Book]
   }
 
   type Mutation {
-    createBook(
-      authors: String
-      description: String
-      bookId: ID!
-      image: String
-      link: String
-      title: String
-    ): Book
+    #createBook(
+    #authors: String
+    #description: String
+    #bookId: ID!
+    #image: String
+    #link: String
+    #title: String
+    #): Book
     createUser(
       _id: ID!
       username: String!

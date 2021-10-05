@@ -3,6 +3,7 @@
 const { User, Book } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+const bookSchema = require("../models/Book");
 
 const resolvers = {
   Query: {
@@ -10,6 +11,11 @@ const resolvers = {
     user: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return User.find({ params });
+    },
+    //finds all books
+    books: async (parent, { bookId }) => {
+      const allBooks = await Book.find({});
+      return { allBooks };
     },
   },
   Mutation: {
