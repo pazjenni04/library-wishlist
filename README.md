@@ -54,6 +54,8 @@ _Questions? Feel free to contact me._
 
 Github link - https://github.com/pazjenni04/library-wishlist.git
 
+Deployed link - https://library-wishlist.herokuapp.com/
+
 # License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
